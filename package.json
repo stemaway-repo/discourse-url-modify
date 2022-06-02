@@ -1,0 +1,10 @@
+{
+  "author": "jumagura",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-discourse": "latest"
+  },
+  "dependencies": {
+    "yarn": "^1.22.18"
+  }
+}
