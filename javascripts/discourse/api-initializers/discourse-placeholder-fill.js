@@ -12,9 +12,29 @@ export default apiInitializer("0.11.1", (api) => {
           if (ele.href.includes("=USERNAME=")) {
             ele.href = ele.href.replace("=USERNAME=", currentUser.username);
           }
+          if (ele.href.includes("=NAME=")) {
+            ele.href = ele.href.replace("=NAME=", currentUser.name);
+          }
           if (ele.href.includes("=EMAIL=")) {
             ajax(`/u/${currentUser.username}/emails.json`).then((data) => {
               ele.href = ele.href.replace("=EMAIL=", data.email);
+            });
+          }
+        });
+        const userFields = el.querySelectorAll("iframe");
+        userFields.forEach(function (userField) {
+          if (userField.src.includes("=USERNAME=")) {
+            userField.src = userField.src.replace(
+              "=USERNAME=",
+              currentUser.username
+            );
+          }
+          if (userField.src.includes("=NAME=")) {
+            userField.src = userField.src.replace("=NAME=", currentUser.name);
+          }
+          if (userField.src.includes("=EMAIL=")) {
+            ajax(`/u/${currentUser.username}/emails.json`).then((data) => {
+              userField.src = userField.src.replace("=EMAIL=", data.email);
             });
           }
         });
