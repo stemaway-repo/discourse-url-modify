@@ -41,8 +41,9 @@ export default apiInitializer("0.11.1", (api) => {
       } else {
         const goglinks = el.querySelectorAll("a[href*='jotform']");
         goglinks.forEach(function (ele) {
-          if (ele.includes.includes("?")) {
+          if (ele.href.includes.includes("?")) {
             ele.href = ele.href.split("?")[0];
+            console.log("ele.href", ele.href);
           }
         });
         const userFields = el.querySelectorAll("iframe");
@@ -52,7 +53,7 @@ export default apiInitializer("0.11.1", (api) => {
             userField.src.includes("=NAME=") ||
             userField.src.includes("=EMAIL=")
           ) {
-            userField.src = "";
+            userField.src = userField.src.split("?")[0];
           }
         });
       }
