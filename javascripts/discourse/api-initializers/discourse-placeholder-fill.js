@@ -43,7 +43,6 @@ export default apiInitializer("0.11.1", (api) => {
         goglinks.forEach(function (ele) {
           if (ele.href.includes.includes("?")) {
             ele.href = ele.href.split("?")[0];
-            console.log("ele.href", ele.href);
           }
         });
         const userFields = el.querySelectorAll("iframe");
