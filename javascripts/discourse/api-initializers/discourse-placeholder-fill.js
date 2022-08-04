@@ -9,7 +9,7 @@ export default apiInitializer("0.11.1", (api) => {
       if (currentUser) {
         const goglinks = el.querySelectorAll("a[href*='jotform']");
         goglinks.forEach(function (ele) {
-          if (ele.href.includes("=USERNAME=")) {
+          if (ele.includes("=USERNAME=")) {
             ele.href = ele.href.replace("=USERNAME=", currentUser.username);
           }
           if (ele.href.includes("=NAME=")) {
@@ -36,6 +36,13 @@ export default apiInitializer("0.11.1", (api) => {
             ajax(`/u/${currentUser.username}/emails.json`).then((data) => {
               userField.src = userField.src.replace("=EMAIL=", data.email);
             });
+          }
+        });
+      } else {
+        const goglinks = el.querySelectorAll("a[href*='jotform']");
+        goglinks.forEach(function (ele) {
+          if (ele.includes.includes("?")) {
+            ele.href = ele.href.split("?")[0];
           }
         });
       }
