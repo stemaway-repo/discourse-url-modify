@@ -47,11 +47,14 @@ export default apiInitializer("0.11.1", (api) => {
         });
         const userFields = el.querySelectorAll("iframe");
         userFields.forEach(function (userField) {
-          if (userField.src.includes("=USERNAME=")|| userField.src.includes("=NAME=") ||userField.src.includes("=EMAIL=") ) {
+          if (
+            userField.src.includes("=USERNAME=") ||
+            userField.src.includes("=NAME=") ||
+            userField.src.includes("=EMAIL=")
+          ) {
             userField.src = "";
           }
-        }
-
+        });
       }
     },
     { onlyStream: true }
