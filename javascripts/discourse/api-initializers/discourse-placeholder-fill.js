@@ -9,7 +9,7 @@ export default apiInitializer("0.11.1", (api) => {
       if (currentUser) {
         const goglinks = el.querySelectorAll("a[href*='jotform']");
         goglinks.forEach(function (ele) {
-          if (ele.includes("=USERNAME=")) {
+          if (ele.href.includes("=USERNAME=")) {
             ele.href = ele.href.replace("=USERNAME=", currentUser.username);
           }
           if (ele.href.includes("=NAME=")) {
